@@ -19,4 +19,6 @@ export interface ButtonProps {
 	bgColor?: string;
 	as?: React.ElementType;
 	type?: string;
+
+	children?: React.ReactElement;
 }

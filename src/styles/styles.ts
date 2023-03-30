@@ -28,8 +28,8 @@ export const FlexBlock = styled.div<FlexProps>`
 	${({ posR }) => posR && `right: ${posR}`};
 	${({ posB }) => posB && `bottom: ${posB}`};
 
-	display: ${({ d }) => d ?? "flex"};
-	flex-direction: ${({ fd }) => fd ?? "row"};
+	display: ${({ d }) => d ?? `flex`};
+	flex-direction: ${({ fd }) => fd ?? `row`};
 	${({ jc }) => jc && `justify-content:${jc}`};
 	${({ ai }) => ai && `align-items:${ai}`};
 
@@ -48,11 +48,11 @@ export const FlexBlock = styled.div<FlexProps>`
 `;
 
 export const Wrapp = styled(FlexBlock)`
-	flex-direction: ${({ fd }) => fd ?? "column"};
+	flex-direction: ${({ fd }) => fd ?? `column`};
 `;
 
 export const Row = styled(FlexBlock)``;
 
 export const Col = styled(FlexBlock)`
-	flex-direction: ${({ fd }) => fd ?? "column"};
+	flex-direction: ${({ fd }) => fd ?? `column`};
 `;
