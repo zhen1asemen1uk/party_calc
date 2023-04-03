@@ -1,19 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Col } from "./styles/styles";
+import { RouterProvider } from "react-router-dom";
+
+import { routers } from "./routes/rootRouters";
 
 const App: React.FC = () => {
-	return (
-		<Col p='10px'>
-			<div>Hello world!</div>
-
-			<br />
-			<Link to={`/main`}>main</Link>
-			<br />
-			<Link to={`/party_room`}>party_room</Link>
-			<br />
-		</Col>
-	);
+	return <RouterProvider router={routers} />;
 };
 
 export default App;

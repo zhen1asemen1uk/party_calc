@@ -3,29 +3,31 @@ import { createBrowserRouter } from "react-router-dom";
 
 import ErrorPage from "../pages/ErrorPage";
 
-import App from "../App";
 import Main from "../pages/Main";
-import PartyRoom from "../pages/PartyRoom";
+import PartysConteiner from "../components/Partys/PartysConteiner";
+import MainLayout from "../reusable/Layout";
+import PartyConteiner from "../components/Party/PartyConteiner";
 
-export const routers = createBrowserRouter([
+const arrPathsAndComponents = [
 	{
 		path: `/`,
-		element: <App />,
-		errorElement: <ErrorPage />,
-	},
-	{
-		path: `/main`,
 		element: <Main />,
-		errorElement: <ErrorPage />,
 	},
 	{
-		path: `/party_room`,
-		element: <PartyRoom />,
-		errorElement: <ErrorPage />,
+		path: `/party`,
+		element: <PartyConteiner />,
 	},
 	{
-		path: `/error`,
-		element: <ErrorPage />,
-		errorElement: <ErrorPage />,
+		path: `/partys`,
+		element: <PartysConteiner />,
 	},
-]);
+	{ path: `/error`, element: <ErrorPage /> },
+];
+
+export const routers = createBrowserRouter(
+	arrPathsAndComponents.map((el) => ({
+		path: el.path,
+		element: <MainLayout>{el.element}</MainLayout>,
+		errorElement: <ErrorPage />,
+	}))
+);

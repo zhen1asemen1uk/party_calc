@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { Wrapp } from "../../styles/styles";
 import Logo from "./sections/Logo";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled(Wrapp)`
 	flex-direction: row;
@@ -29,13 +30,13 @@ const Header: React.FC = () => {
 			<nav>
 				<UlStyled>
 					<li>
-						<a href='#'>Home</a>
+						<Link to={`/party`}>+ Add Party</Link>
 					</li>
 					<li>
-						<a href='#'>About</a>
+						<Link to={`/partys`}>Partys</Link>
 					</li>
 					<li>
-						<a href='#'>Contact</a>
+						<Link to={`/login`}>Login</Link>
 					</li>
 				</UlStyled>
 			</nav>

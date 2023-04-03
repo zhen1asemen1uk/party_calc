@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
 
-import MainLayout from "./reusable/Layout";
 import GlobalStyle from "./styles/globals";
-import { routers } from "./routes/rootRouters";
+import App from "./App";
 
 const root = ReactDOM.createRoot(
 	document.getElementById(`root`) as HTMLElement
@@ -12,9 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<React.StrictMode>
-		<MainLayout>
-			<RouterProvider router={routers} />
-		</MainLayout>
+		<App />
 		<GlobalStyle />
 	</React.StrictMode>
 );

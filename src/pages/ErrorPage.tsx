@@ -1,5 +1,5 @@
 import { Link, useRouteError } from "react-router-dom";
-import Loander from "../components/Loander";
+import Loander from "../reusable/Loander";
 
 interface RouteError {
 	status: string;
