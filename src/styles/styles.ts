@@ -19,6 +19,7 @@ interface FlexProps {
 	minH?: string;
 	maxH?: string;
 	bg?: string;
+	c?: string;
 }
 
 export const FlexBlock = styled.div<FlexProps>`
@@ -44,6 +45,7 @@ export const FlexBlock = styled.div<FlexProps>`
 	${({ minH }) => minH && `min-height: ${minH}`};
 	${({ maxH }) => maxH && `max-height: ${maxH}`};
 
+	${({ c }) => c && `color: ${c}`};
 	${({ bg }) => bg && `background: ${bg}`};
 `;
 

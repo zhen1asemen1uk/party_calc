@@ -9,6 +9,7 @@ const portal = document.getElementById(`portal`) as HTMLElement;
 
 interface Props extends PropsWithChildren {
 	title: string;
+	secondary?: boolean;
 }
 
 const ModalWrapp = styled(FlexBlock)`
@@ -52,17 +53,23 @@ const ModalBody = styled(FlexBlock)`
 	z-index: 1001;
 `;
 
-const PopUp: React.FC<Props> = ({ children, title }) => {
+const PopUp: React.FC<Props> = ({ children, title, secondary }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	return (
 		<>
-			<Button word={title} onClick={() => setIsOpen(!isOpen)} />
+			<Button
+				title={title}
+				onClick={() => setIsOpen(!isOpen)}
+				secondary={secondary}
+			/>
 
 			{isOpen &&
 				createPortal(
 					<ModalWrapp onClick={() => setIsOpen(!isOpen)}>
-						<ModalBody>{children}</ModalBody>
+						<ModalBody onClick={(e) => e.stopPropagation()}>
+							{children}
+						</ModalBody>
 						<ModalOverview />
 					</ModalWrapp>,
 					portal

@@ -1,5 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import Loander from "../reusable/Loander";
+import { Col, FlexBlock } from "../styles/styles";
 
 interface RouteError {
 	status: string;
@@ -12,19 +13,19 @@ const ErrorPage: React.FC = () => {
 	console.error(error && error);
 
 	return (
-		<div>
+		<Col ai='center' jc='space-between' h='100vh'>
 			<h1>Oops!</h1>
 
 			<Loander />
 
 			<p>Sorry, an unexpected error has occurred.</p>
-			<p>
-				<i>{error ? error?.status || error?.message : ``}</i>
-			</p>
+			<FlexBlock c='red'>
+				{error ? error?.status || error?.message : ``}
+			</FlexBlock>
 			<p>
 				<Link to={`/`}>Go main</Link>
 			</p>
-		</div>
+		</Col>
 	);
 };
 

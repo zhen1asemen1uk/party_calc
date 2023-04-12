@@ -2,18 +2,23 @@ import React from "react";
 
 import PopUp from "../reusable/PopUp";
 
-import PartysConteiner from "../components/Partys/PartysConteiner";
-import PartyConteiner from "../components/Party/PartyConteiner";
+import Partys from "../components/Partys/Partys";
+import Party from "../components/Party/Party";
+import AddParty from "../components/Party/sections/AddParty";
 
 const Main: React.FC = () => {
 	return (
 		<>
 			<PopUp title='+ Add party'>
-				<PartyConteiner />
+				<AddParty />
 			</PopUp>
 
-			<PopUp title='Partys'>
-				<PartysConteiner />
+			<PopUp title='Party page'>
+				<Party />
+			</PopUp>
+
+			<PopUp title='All Partys'>
+				<Partys />
 			</PopUp>
 		</>
 	);

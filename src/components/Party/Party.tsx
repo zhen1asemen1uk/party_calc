@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Wrapp } from "../../styles/styles";
+import { Col } from "../../styles/styles";
 
-const Wrapper = styled(Wrapp)`
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
+import PartyCard from "../../reusable/PartyCard/PartyCard";
+import Button from "../../reusable/Button";
+import { type IPartyProps } from "../../types/party";
 
-	height: 50px;
-	padding: 0 50px;
+const Wrapper = styled(Col)`
+	padding: 25px 50px;
 
 	color: white;
 
@@ -17,7 +16,17 @@ const Wrapper = styled(Wrapp)`
 `;
 
 const Party: React.FC = () => {
-	return <Wrapper>{`It's Party`}</Wrapper>;
+	const [party, setParty] = useState<IPartyProps | null>({
+		title: `Test party 2`,
+	});
+
+	return (
+		<Wrapper>
+			<PartyCard party={party} />
+
+			<Button title={`Clear`} onClick={() => setParty(null)} />
+		</Wrapper>
+	);
 };
 
 export default Party;

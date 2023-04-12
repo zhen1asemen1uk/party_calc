@@ -3,10 +3,11 @@ import { createBrowserRouter } from "react-router-dom";
 
 import ErrorPage from "../pages/ErrorPage";
 
-import Main from "../pages/Main";
-import PartysConteiner from "../components/Partys/PartysConteiner";
 import MainLayout from "../reusable/Layout";
-import PartyConteiner from "../components/Party/PartyConteiner";
+
+import Main from "../pages/Main";
+import Partys from "../components/Partys/Partys";
+import Party from "../components/Party/Party";
 
 const arrPathsAndComponents = [
 	{
@@ -15,11 +16,11 @@ const arrPathsAndComponents = [
 	},
 	{
 		path: `/party`,
-		element: <PartyConteiner />,
+		element: <Party />,
 	},
 	{
 		path: `/partys`,
-		element: <PartysConteiner />,
+		element: <Partys />,
 	},
 	{ path: `/error`, element: <ErrorPage /> },
 ];

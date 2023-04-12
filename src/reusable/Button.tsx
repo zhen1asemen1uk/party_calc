@@ -18,7 +18,7 @@ const WrappButton = styled.button<ButtonProps>`
 	margin: ${({ m }) => m ?? `0`};
 
 	background: ${({ bgColor, secondary }) =>
-		bgColor ?? (secondary ? `transparent` : `#e2c32b`)};
+		bgColor ?? (secondary ? `transparent` : `black`)};
 
 	border: ${({ secondary }) => (secondary ? `1px solid #494e5b` : `none`)};
 	border-radius: 5px;
@@ -30,7 +30,7 @@ const WrappButton = styled.button<ButtonProps>`
 	letter-spacing: 0.75px;
 	text-transform: uppercase;
 
-	color: ${({ secondary }) => (secondary ? `#E2C32B` : `#494E5B`)};
+	color: ${({ secondary }) => (secondary ? `#E2C32B` : `white`)};
 
 	transition: 0.2s;
 	opacity: ${({ disabled }) => (disabled ? `0.5` : `1`)};
@@ -44,14 +44,14 @@ const WrappButton = styled.button<ButtonProps>`
 	user-select: none;
 
 	:hover {
-		background: ${({ disabled, secondary }) =>
+		/* background: ${({ disabled, secondary }) =>
 			disabled && secondary
 				? `transparent`
 				: disabled
 				? `#e2c32b`
 				: secondary
 				? `transparent`
-				: `#FFE252`};
+				: `#FFE252`}; */
 
 		color: ${({ disabled, secondary }) =>
 			disabled && secondary
@@ -60,7 +60,16 @@ const WrappButton = styled.button<ButtonProps>`
 				? `#494E5B`
 				: secondary
 				? `#FFE252`
-				: `#494E5B`};
+				: `#ffffff`};
+
+		box-shadow: ${({ disabled, secondary }) =>
+			disabled && secondary
+				? `none`
+				: disabled
+				? `none`
+				: secondary
+				? `none`
+				: `0px 0px 15px 2px rgba(0,0,0,0.75)`};
 	}
 
 	:active {
@@ -71,7 +80,7 @@ const WrappButton = styled.button<ButtonProps>`
 				? `#e2c32b`
 				: secondary
 				? `transparent`
-				: `#D8B300`};
+				: `#000`};
 
 		color: ${({ disabled, secondary }) =>
 			disabled && secondary
@@ -80,7 +89,16 @@ const WrappButton = styled.button<ButtonProps>`
 				? `#494E5B`
 				: secondary
 				? `#D8B300`
-				: `#494E5B`};
+				: `#fff`};
+
+		box-shadow: ${({ disabled, secondary }) =>
+			disabled && secondary
+				? `none`
+				: disabled
+				? `none`
+				: secondary
+				? `none`
+				: `0px 0px 25px 8px rgba(0,0,0,0.75)`};
 	}
 
 	height: ${({ h }) => h ?? `50px`};
@@ -88,7 +106,7 @@ const WrappButton = styled.button<ButtonProps>`
 `;
 
 const Button: React.FC<ButtonProps> = ({
-	word = `Button`,
+	title = `Button`,
 
 	onClick,
 
@@ -127,7 +145,7 @@ const Button: React.FC<ButtonProps> = ({
 			as={as}
 			type={type}
 			onClick={onClick}>
-			{word}
+			{title}
 		</WrappButton>
 	);
 };
