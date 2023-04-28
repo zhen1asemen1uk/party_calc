@@ -25,7 +25,6 @@
 	"rules": {
 		"react/react-in-jsx-scope": "off",
 		"spaced-comment": "error",
-		"quotes": ["error", "backtick"],
 		"no-duplicate-imports": "error",
 		"@typescript-eslint/strict-boolean-expressions": 0,
 		"@typescript-eslint/no-confusing-void-expression": 0

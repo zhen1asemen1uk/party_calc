@@ -2,12 +2,11 @@ import React from "react";
 
 import styled from "styled-components";
 
-import FooterConteiner from "../components/Footer/FooterConteiner";
-import HeaderConteiner from "../components/Header/HeaderConteiner";
-
-import { Col } from "../styles/styles";
+import { Col } from "./styles";
 
 import { type MainLayoutProps } from "../types/components";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const Wrapp = styled(Col)``;
 
@@ -18,9 +17,9 @@ const Main = styled.div`
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	return (
 		<Wrapp minH='100vh'>
-			<HeaderConteiner />
+			<Header />
 			<Main>{children}</Main>
-			<FooterConteiner />
+			<Footer />
 		</Wrapp>
 	);
 };

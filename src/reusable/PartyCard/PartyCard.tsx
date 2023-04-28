@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Wrapp } from "../../styles/styles";
+import { Wrapp } from "../styles";
 import { type IPartyProps } from "../../types/party";
 
 const Wrapper = styled(Wrapp)`
@@ -12,9 +12,7 @@ const Wrapper = styled(Wrapp)`
 	height: 50px;
 	padding: 0 50px;
 
-	color: white;
-
-	background-color: green;
+	color: ${({ theme }) => theme.main};
 `;
 
 interface IPartyCard {

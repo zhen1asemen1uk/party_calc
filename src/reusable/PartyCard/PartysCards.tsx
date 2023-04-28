@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { type IPartyProps } from "../../types/party";
-import { Wrapp } from "../../styles/styles";
+import { Wrapp } from "../styles";
 import PartyCard from "./PartyCard";
 
 const Wrapper = styled(Wrapp)`
@@ -10,12 +10,9 @@ const Wrapper = styled(Wrapp)`
 	align-items: center;
 	justify-content: space-between;
 
-	/* height: 50px; */
 	padding: 0 50px;
 
-	color: white;
-
-	background-color: green;
+	color: ${({ theme }) => theme.main};
 `;
 
 interface IPartysCards {

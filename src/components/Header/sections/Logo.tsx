@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { FlexBlock } from "../../../styles/styles";
+import { FlexBlock } from "../../../reusable/styles";
 
 const Wrapp = styled(FlexBlock)`
 	cursor: pointer;

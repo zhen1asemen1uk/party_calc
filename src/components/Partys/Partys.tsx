@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Wrapp } from "../../styles/styles";
+import { Wrapp } from "../../reusable/styles";
 
 import PartysCards from "../../reusable/PartyCard/PartysCards";
 import Button from "../../reusable/Button";
@@ -15,9 +15,7 @@ const Wrapper = styled(Wrapp)`
 
 	padding: 0 50px;
 
-	color: white;
-
-	background-color: green;
+	color: ${({ theme }) => theme.main};
 `;
 
 const Partys: React.FC = () => {

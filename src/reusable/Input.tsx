@@ -2,7 +2,7 @@ import React, { type ChangeEvent } from "react";
 import styled from "styled-components";
 
 import { type InputProps } from "../types/resusable";
-import { FlexBlock } from "../styles/styles";
+import { FlexBlock } from "./styles";
 
 const InputStyled = styled.input<InputProps>`
 	${({ pos }) => pos && `position: ${pos}`};
@@ -18,8 +18,8 @@ const InputStyled = styled.input<InputProps>`
 	padding: ${({ p }) => p ?? `0 5px`};
 	margin: ${({ m }) => m ?? `0`};
 
-	background: ${({ bgColor, secondary }) =>
-		bgColor ?? (secondary ? `transparent` : `white`)};
+	background: ${({ bgColor, secondary, theme }) =>
+		bgColor ?? (secondary ? `transparent` : theme.main)};
 
 	border: ${({ secondary }) => (secondary ? `1px solid #494e5b` : `none`)};
 	border-radius: 5px;

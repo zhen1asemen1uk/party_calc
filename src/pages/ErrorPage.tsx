@@ -1,6 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import Loander from "../reusable/Loander";
-import { Col, FlexBlock } from "../styles/styles";
+import { Col, FlexBlock } from "../reusable/styles";
 
 interface RouteError {
 	status: string;

@@ -1,5 +1,28 @@
 import { type SetStateAction, type ChangeEvent, type Dispatch } from "react";
 
+export interface FlexProps {
+	pos?: string;
+	posT?: string;
+	posL?: string;
+	posR?: string;
+	posB?: string;
+	d?: string;
+	fd?: string;
+	jc?: string;
+	ai?: string;
+	p?: string;
+	m?: string;
+	w?: string;
+	minW?: string;
+	maxW?: string;
+	h?: string;
+	minH?: string;
+	maxH?: string;
+	bg?: string;
+	c?: string;
+	g?: string;
+}
+
 export interface ButtonProps {
 	onClick?: () => void;
 	title: string;
@@ -53,4 +76,9 @@ export interface InputProps {
 	placeholder?: string;
 
 	disabled?: boolean;
+}
+
+export interface ITheme {
+	main: string;
+	secondary: string;
 }

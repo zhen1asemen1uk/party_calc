@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Col } from "../../../styles/styles";
+import { Col } from "../../../reusable/styles";
 import Input from "../../../reusable/Input";
 import Button from "../../../reusable/Button";
 
 const Wrapper = styled(Col)`
 	padding: 25px 50px;
 
-	color: white;
-
-	background-color: green;
+	color: ${({ theme }) => theme.main};
 `;
 
 const AddParty: React.FC = () => {

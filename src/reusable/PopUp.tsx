@@ -2,7 +2,7 @@ import React, { useState, type PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-import { FlexBlock } from "../styles/styles";
+import { FlexBlock } from "./styles";
 import Button from "./Button";
 
 const portal = document.getElementById(`portal`) as HTMLElement;
@@ -47,8 +47,11 @@ const ModalBody = styled(FlexBlock)`
 	justify-content: center;
 
 	padding: 20px;
-	background: white;
-	border-radius: 20px;
+	background: ${({ theme }) => theme.main};
+
+	border: 2px solid ${({ theme }) => theme.secondary};
+	box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+		5px 5px 0px 0px;
 
 	z-index: 1001;
 `;

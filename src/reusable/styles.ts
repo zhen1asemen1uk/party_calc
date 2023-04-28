@@ -1,26 +1,5 @@
 import styled from "styled-components";
-
-interface FlexProps {
-	pos?: string;
-	posT?: string;
-	posL?: string;
-	posR?: string;
-	posB?: string;
-	d?: string;
-	fd?: string;
-	jc?: string;
-	ai?: string;
-	p?: string;
-	m?: string;
-	w?: string;
-	minW?: string;
-	maxW?: string;
-	h?: string;
-	minH?: string;
-	maxH?: string;
-	bg?: string;
-	c?: string;
-}
+import { type FlexProps } from "../types/resusable";
 
 export const FlexBlock = styled.div<FlexProps>`
 	${({ pos }) => pos && `position: ${pos}`};
@@ -47,6 +26,7 @@ export const FlexBlock = styled.div<FlexProps>`
 
 	${({ c }) => c && `color: ${c}`};
 	${({ bg }) => bg && `background: ${bg}`};
+	${({ g }) => g && `gap: ${g}`};
 `;
 
 export const Wrapp = styled(FlexBlock)`

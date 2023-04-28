@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Col } from "../../styles/styles";
+import { Col } from "../../reusable/styles";
 
 import PartyCard from "../../reusable/PartyCard/PartyCard";
 import Button from "../../reusable/Button";
@@ -10,9 +10,7 @@ import { type IPartyProps } from "../../types/party";
 const Wrapper = styled(Col)`
 	padding: 25px 50px;
 
-	color: white;
-
-	background-color: green;
+	color: ${({ theme }) => theme.main};
 `;
 
 const Party: React.FC = () => {

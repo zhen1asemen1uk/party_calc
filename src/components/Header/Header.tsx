@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Wrapp } from "../../styles/styles";
+import { Wrapp } from "../../reusable/styles";
 import Logo from "./sections/Logo";
-import { Link } from "react-router-dom";
 
 const Wrapper = styled(Wrapp)`
 	flex-direction: row;
@@ -13,9 +13,12 @@ const Wrapper = styled(Wrapp)`
 	height: 50px;
 	padding: 0 50px;
 
-	color: white;
+	color: ${({ theme }) => theme.secondary};
 
-	background-color: green;
+	background: ${({ theme }) => theme.main};
+
+	border-top: 2px solid ${({ theme }) => theme.secondary};
+	border-bottom: 6px solid ${({ theme }) => theme.secondary};
 `;
 
 const UlStyled = styled.ul`

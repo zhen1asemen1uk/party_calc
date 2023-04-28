@@ -4,11 +4,9 @@ import styled from "styled-components";
 import { type ButtonProps } from "../types/resusable";
 
 const WrappButton = styled.button<ButtonProps>`
-	${({ pos }) => pos && `position: ${pos}`};
-	${({ posT }) => posT && `top: ${posT}`};
-	${({ posL }) => posL && `left: ${posL}`};
-	${({ posR }) => posR && `right: ${posR}`};
-	${({ posB }) => posB && `bottom: ${posB}`};
+	position: relative;
+	top: -5px;
+	left: -5px;
 
 	display: flex;
 	justify-content: center;
@@ -17,11 +15,16 @@ const WrappButton = styled.button<ButtonProps>`
 	padding: ${({ p }) => p ?? `0`};
 	margin: ${({ m }) => m ?? `0`};
 
-	background: ${({ bgColor, secondary }) =>
-		bgColor ?? (secondary ? `transparent` : `black`)};
+	background: ${({ bgColor, secondary, theme }) =>
+		bgColor ?? (secondary ? theme.main : theme.main)};
 
-	border: ${({ secondary }) => (secondary ? `1px solid #494e5b` : `none`)};
-	border-radius: 5px;
+	border: ${({ secondary, theme }) =>
+		secondary
+			? `2px solid ${theme.secondary}`
+			: `2px solid ${theme.secondary}`};
+
+	box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+		5px 5px 0px 0px;
 
 	font-style: normal;
 	font-weight: 600;
@@ -30,7 +33,8 @@ const WrappButton = styled.button<ButtonProps>`
 	letter-spacing: 0.75px;
 	text-transform: uppercase;
 
-	color: ${({ secondary }) => (secondary ? `#E2C32B` : `white`)};
+	color: ${({ secondary, theme }) =>
+		secondary ? `${theme.secondary}` : `${theme.secondary}`};
 
 	transition: 0.2s;
 	opacity: ${({ disabled }) => (disabled ? `0.5` : `1`)};
@@ -44,23 +48,26 @@ const WrappButton = styled.button<ButtonProps>`
 	user-select: none;
 
 	:hover {
-		/* background: ${({ disabled, secondary }) =>
-			disabled && secondary
-				? `transparent`
-				: disabled
-				? `#e2c32b`
-				: secondary
-				? `transparent`
-				: `#FFE252`}; */
+		top: -4.5px;
+		left: -4.5px;
 
-		color: ${({ disabled, secondary }) =>
+		background: ${({ disabled, secondary, theme }) =>
 			disabled && secondary
-				? `E2C32B`
+				? `transparent`
 				: disabled
-				? `#494E5B`
+				? `transparent`
 				: secondary
-				? `#FFE252`
-				: `#ffffff`};
+				? `${theme.main}`
+				: `${theme.main}`};
+
+		color: ${({ disabled, secondary, theme }) =>
+			disabled && secondary
+				? `silver`
+				: disabled
+				? `silver`
+				: secondary
+				? `${theme.secondary}`
+				: `${theme.secondary}`};
 
 		box-shadow: ${({ disabled, secondary }) =>
 			disabled && secondary
@@ -68,28 +75,34 @@ const WrappButton = styled.button<ButtonProps>`
 				: disabled
 				? `none`
 				: secondary
-				? `none`
-				: `0px 0px 15px 2px rgba(0,0,0,0.75)`};
+				? `1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px`
+				: `1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px`};
 	}
 
 	:active {
-		background: ${({ disabled, secondary }) =>
-			disabled && secondary
-				? `transparent`
-				: disabled
-				? `#e2c32b`
-				: secondary
-				? `transparent`
-				: `#000`};
+		top: 0;
+		left: 0;
 
-		color: ${({ disabled, secondary }) =>
+		border: ${({ secondary, theme }) =>
+			secondary ? `2px solid ${theme.main}` : `2px solid theme.secondary`};
+
+		background: ${({ disabled, secondary, theme }) =>
 			disabled && secondary
-				? `#E2C32B`
+				? `silver`
 				: disabled
-				? `#494E5B`
+				? `silver`
 				: secondary
-				? `#D8B300`
-				: `#fff`};
+				? `${theme.main}`
+				: `${theme.main}`};
+
+		color: ${({ disabled, secondary, theme }) =>
+			disabled && secondary
+				? `silver`
+				: disabled
+				? `silver`
+				: secondary
+				? `${theme.secondary}`
+				: `${theme.secondary}`};
 
 		box-shadow: ${({ disabled, secondary }) =>
 			disabled && secondary
@@ -98,7 +111,7 @@ const WrappButton = styled.button<ButtonProps>`
 				? `none`
 				: secondary
 				? `none`
-				: `0px 0px 25px 8px rgba(0,0,0,0.75)`};
+				: `0 0 0 0`};
 	}
 
 	height: ${({ h }) => h ?? `50px`};
